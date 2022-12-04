@@ -14,7 +14,8 @@ ja:
           updated_at: 更新日
         task:
           id: ID
-          name: 名称
+          name: 利益商品名称
+          store: 店舗名
           description: 詳細
           created_at: 作成日
           updated_at: 更新日

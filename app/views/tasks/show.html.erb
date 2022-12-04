@@ -15,6 +15,10 @@
           <td><%= @task.name %></td>
         </tr>
         <tr>
+          <th class="active"><%= Task.human_attribute_name :store %></th>
+          <td><%= @task.store %></td>
+        </tr>
+        <tr>
           <th class="active"><%= Task.human_attribute_name :description %></th>
           <td>
             <%= auto_link(safe_join(@task.description.split("\n"), tag(:br))) %>

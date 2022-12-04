@@ -1,6 +1,6 @@
 <% provide(:title, 'New Task') %>
 
-<h1>タスク新規作成</h1>
+<h1>利益商品新規作成</h1>
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
@@ -9,7 +9,13 @@
       
       <%= f.label :name, class: "label-form" %>
       <%= f.text_field :name, class: "form-control" %>
-
+      
+      <%= f.label :store, class: "label-form" %>
+      <%= f.select :name, [["ブックオフ", "ブックオフ"], ["ハードオフ", "ハードオフ"], ["GEO", "GEO"], ["トレファク", "トレファク"], ["古本市場", "古本市場"], ["ヤマダ電機", "ヤマダ電機"], ["島忠ホームズ", "島忠ホームズ"], ["その他", "その他"]] ,class:"form-control" %><br>
+      
+      <%= f.label :store, class: "label-form" %>
+      <%= f.text_field :name, class: "form-control" %>
+      
       <%= f.label :description, class: "label-form" %>
       <%= f.text_area :description, rows: 5, class: "form-control" %>
 

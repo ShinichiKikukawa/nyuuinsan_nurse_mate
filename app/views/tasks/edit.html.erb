@@ -1,6 +1,6 @@
 <% provide(:title, 'Edit Task') %>
 
-<h1>タスク編集</h1>
+<h1>利益商品編集</h1>
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
@@ -8,6 +8,9 @@
       <%= render partial: 'shared/error_messages', locals: { obj: @task } %>
       
       <%= f.label :name, class: "label-form" %>
+      <%= f.text_field :name, class: "form-control" %>
+      
+      <%= f.label :store, class: "label-form" %>
       <%= f.text_field :name, class: "form-control" %>
 
       <%= f.label :description, class: "label-form" %>
