@@ -8,6 +8,7 @@
           <% if current_user.admin? %>
            <li><%= link_to "せどらー 一覧", users_path, class: "header-list" %></li>
           <% end %>
+          <li><%= link_to "リサーチ済み商品作成", new_user_ng_item_path(current_user), class: "header-list" %></li>
           <li><%= link_to "利益商品作成", new_user_task_path(current_user), class: "header-list" %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle header-list" data-toggle="dropdown" id="dropdown-title">
@@ -19,7 +20,7 @@
               <li><%= link_to "設定", edit_user_path(current_user) %></li>
               <li class="dropdown-header">利益商品</li>
               <li><%= link_to "利益商品一覧", user_tasks_path(current_user) %></li>
-              
+              <li><%= link_to "リサーチ済み商品一覧", user_ng_items_path(current_user) %></li>
               <li class="divider"></li>
               <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
             </ul>

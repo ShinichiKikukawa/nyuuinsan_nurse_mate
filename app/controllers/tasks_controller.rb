@@ -18,7 +18,7 @@ class TasksController < ApplicationController
   def create
     @task = @user.tasks.build(task_params)
     if @task.save
-      flash[:success] = "現場でタスクを新規作成しました！現場からは以上です！"
+      flash[:success] = "現場で利益商品を新規作成しました！現場からは以上です！"
       redirect_to user_tasks_url @user
     else
       render :new
@@ -48,7 +48,7 @@ class TasksController < ApplicationController
   private
 
     def task_params
-      params.require(:task).permit(:name, :store, :description)
+      params.require(:task).permit(:name, :company, :store, :description)
     end
     
     def set_user

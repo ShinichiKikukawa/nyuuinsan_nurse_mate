@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'ng_items/new'
+
   root 'static_pages#top'
   get '/signup', to: 'users#new'
   
@@ -8,5 +10,6 @@ Rails.application.routes.draw do
   
   resources :users do
     resources :tasks
+    resources :ng_items
   end
 end

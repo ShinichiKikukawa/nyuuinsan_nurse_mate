@@ -1,0 +1,48 @@
+<% provide(:title, @user.name) %>
+
+<h1>リサーチ済み商品詳細</h1>
+
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <table class="table table-bordered" id="table-task">
+      <tbody>
+        <tr>
+          <th class="active col-md-2"><%= NgItem.human_attribute_name :id %></th>
+          <td class="col-md-10"><%= @ng_item.id %></td>
+        </tr>
+        <tr>
+          <th class="active"><%= NgItem.human_attribute_name :name %></th>
+          <td><%= @ng_item.name %></td>
+        </tr>
+        <tr>
+          <th class="active"><%= NgItem.human_attribute_name :company %></th>
+          <td><%= @ng_item.company %></td>
+        </tr>
+        <tr>
+          <th class="active"><%= NgItem.human_attribute_name :store %></th>
+          <td><%= @ng_item.store %></td>
+        </tr>
+        <tr>
+          <th class="active"><%= NgItem.human_attribute_name :description %></th>
+          <td>
+            <%= auto_link(safe_join(@ng_item.description.split("\n"), tag(:br))) %>
+          </td>
+        </tr>
+        <tr>
+          <th class="active"><%= NgItem.human_attribute_name :created_at %></th>
+          <td><%= l(@ng_item.created_at, format: :long) %></td>
+        </tr>
+        <tr>
+          <th class="active"><%= NgItem.human_attribute_name :updated_at %></th>
+          <td><%= l(@ng_item.updated_at, format: :long) %></td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div>
+      <%= link_to "編集", edit_user_task_path(@user, @ng_item), class: "btn btn-lg btn-success" %>
+      <%= link_to "削除", user_task_path(@user, @ng_item), method: :delete,
+      data: { confirm: "「#{@ng_item.name}」を削除します。よろしいですか？" }, class: "btn btn-lg btn-danger" %>
+    </div>
+  </div>    
+</div>

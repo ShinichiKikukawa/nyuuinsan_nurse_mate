@@ -10,7 +10,9 @@
       <thead>
         <tr>
           <th><%= Task.human_attribute_name :name %></th>
+          <th><%= Task.human_attribute_name :company %></th>
           <th><%= Task.human_attribute_name :store %></th>
+          <th><%= Task.human_attribute_name :description %></th>
           <th><%= Task.human_attribute_name :created_at %></th>
           <th></th>
         </tr>
@@ -20,7 +22,9 @@
         <% @tasks.each do |task| %>
          <tr>
            <td><%= link_to task.name, user_task_path(@user, task), id: "task-name" %></td>
+           <td><%= link_to task.company, user_task_path(@user, task), id: "task-name" %></td>
            <td><%= link_to task.store, user_task_path(@user, task), id: "task-name" %></td>
+           <td><%= link_to task.description, user_task_path(@user, task), id: "task-name" %></td>
            <td><%= l(task.created_at, format: :long) %></td> 
            <td>
             <%= link_to "編集", edit_user_task_path(@user, task), class: "btn btn-success" %>

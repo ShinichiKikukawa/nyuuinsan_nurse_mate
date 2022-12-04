@@ -1,6 +1,6 @@
 <% provide(:title, @user.name) %>
 
-<h1>タスク詳細</h1>
+<h1>利益商品詳細</h1>
 
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
@@ -13,6 +13,10 @@
         <tr>
           <th class="active"><%= Task.human_attribute_name :name %></th>
           <td><%= @task.name %></td>
+        </tr>
+        <tr>
+          <th class="active"><%= Task.human_attribute_name :company %></th>
+          <td><%= @task.company %></td>
         </tr>
         <tr>
           <th class="active"><%= Task.human_attribute_name :store %></th>

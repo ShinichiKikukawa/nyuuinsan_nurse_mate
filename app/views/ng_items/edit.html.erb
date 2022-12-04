@@ -1,11 +1,11 @@
-<% provide(:title, 'Edit Profit Items') %>
+<% provide(:title, 'Edit NG Items') %>
 
-<h1>利益商品編集</h1>
+<h1>リサーチ済み商品編集</h1>
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <%= form_with(model: @task, url: user_task_path(@user, @task), local: true, method: :patch) do |f| %>
-      <%= render partial: 'shared/error_messages', locals: { obj: @task } %>
+    <%= form_with(model: @ng_item, url: user_ng_item_path(@user, @ng_item), local: true, method: :patch) do |f| %>
+      <%= render partial: 'shared/error_messages', locals: { obj: @ng_item } %>
       
       <%= f.label :name, class: "label-form" %>
       <%= f.text_field :name, class: "form-control" %>

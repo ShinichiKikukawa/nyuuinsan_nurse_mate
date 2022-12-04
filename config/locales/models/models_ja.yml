@@ -15,7 +15,16 @@ ja:
         task:
           id: ID
           name: 利益商品名称
-          store: 店舗名
+          company: 会社名
+          store: 店舗名(個人名)
+          description: 詳細
+          created_at: 作成日
+          updated_at: 更新日
+        ng_item:
+          id: ID
+          name: リサーチ済み商品名
+          company: 会社名
+          store: 店舗名(個人名)
           description: 詳細
           created_at: 作成日
           updated_at: 更新日
