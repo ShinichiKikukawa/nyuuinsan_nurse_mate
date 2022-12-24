@@ -1,6 +1,6 @@
 <% provide(:title, 'research Items') %>
 
-<h1>リサーチ済み商品新規作成</h1>
+<h1>リサーチ済み商品　新規作成</h1>
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
@@ -11,7 +11,7 @@
       <%= f.text_field :name, class: "form-control" %>
       
       <%= f.label :company, class: "label-form" %>
-      <%= f.select :company, [["ブックオフ", "ブックオフ"], ["ハードオフ", "ハードオフ"], ["GEO", "GEO"], 
+      <%= f.select :company, [["ブックオフSUPER BAZAAR", "ブックオフSUPER BAZAAR"], ["ブックオフ", "ブックオフ"], ["ハードオフ", "ハードオフ"], ["GEO", "GEO"], 
       ["トレファク", "トレファク"], ["古本市場", "古本市場"], ["ヤマダ電機", "ヤマダ電機"], ["島忠ホームズ", "島忠ホームズ"],
       ["メルカリ", "メルカリ"],["Amazon", "Amazon"],["その他", "その他"]], class:"form-control" %><br>
       
@@ -19,8 +19,20 @@
       <%= f.text_field :store, class: "form-control" %>
       
       <%= f.label :description, class: "label-form" %>
-      <%= f.text_area :description, rows: 5, class: "form-control" %>
-
+      <%= f.text_area :description, rows: 12, class: "form-control", 
+      value: '需要ターゲット　10代　20代　30代　40代　50代以上　男性　女性　自分用
+      ターゲットシーズン　春　入社　入学　夏　夏休み　お盆　秋　観光　読書　冬　クリスマス　年末年始　通年　　
+      メルカリ相場　　　円
+      アマゾン相場　　　円
+      keepa波形　バキバキ　ややバキ　バキ　季節によってバキバキ　フラット　分からない
+      コンディション　非常に良い　良い　可
+      仕入れ値　　　円
+      値付け　　　円
+      入金　　　円
+      経費　　　円
+      利益　　　円
+      備考' %>
+      
       <%= f.submit "新規登録", class: "btn btn-lg btn-primary btn-form" %>
     <% end %>
   </div>

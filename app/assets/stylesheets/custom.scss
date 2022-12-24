@@ -124,3 +124,24 @@ li .dropdown-header {
     color: $state-danger-text;
   }
 }
+
+/* about */
+
+.about-main {
+  padding: 50px 8% 0;
+}
+
+.about-main h2 {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.about-main p {
+  font-weight: 200;
+  font-size: 20px;
+}
+
+.about-img {
+  width: 100%;
+}

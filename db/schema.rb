@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221204191413) do
+ActiveRecord::Schema.define(version: 20221224205302) do
 
   create_table "ng_items", force: :cascade do |t|
     t.string "name"
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 20221204191413) do
     t.datetime "updated_at", null: false
     t.string "store"
     t.string "company"
+    t.integer "amazon"
+    t.integer "mercari"
+    t.integer "expense"
+    t.string "leadtime"
+    t.date "paymentday"
+    t.integer "profit"
+    t.string "keepa"
+    t.integer "purchase"
     t.index ["user_id", "created_at"], name: "index_tasks_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end

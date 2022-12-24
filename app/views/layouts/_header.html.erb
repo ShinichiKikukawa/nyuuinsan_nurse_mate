@@ -4,6 +4,7 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "トップ", root_path, class: "header-list" %></li>
+        <li><%= link_to "せどらー共和国とは", about_path, class: "header-list" %></li>
         <% if logged_in? %>
           <% if current_user.admin? %>
            <li><%= link_to "せどらー 一覧", users_path, class: "header-list" %></li>
