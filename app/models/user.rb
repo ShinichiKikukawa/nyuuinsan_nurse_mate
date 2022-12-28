@@ -2,7 +2,6 @@ class User < ApplicationRecord
   attr_accessor :remember_token
   has_many :tasks, dependent: :destroy
   has_many :ng_items, dependent: :destroy
-  has_many :stores, dependent: :destroy
   
   before_save { self.email = email.downcase }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
