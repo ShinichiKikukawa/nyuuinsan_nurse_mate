@@ -16,8 +16,8 @@ class NgItemsController < ApplicationController
   end
   
   def create
-    @ng_items = @user.ng_items.build(ng_item_params)
-    if @ng_items.save
+    @ng_item = @user.ng_items.build(ng_item_params)
+    if @ng_item.save
       flash[:success] = "現場でリサーチ済み商品を新規作成しました！現場からは以上です！"
       redirect_to user_ng_items_url @user
     else

@@ -60,7 +60,7 @@ puts "Admin user.created"
   puts "User#{n+1}.created!"
   end
   
-  12.times do |n|
+  22.times do |n|
     name  = Faker::Name.name
     email = "sample-#{n+9}@email.com"
     password = "password"
@@ -74,7 +74,7 @@ puts "Admin user.created"
 
   admin_user = User.first
   guest_user = User.find(2)
-  
+
   3.times do |n|
     task_name = "利益商品#{n + 1}"
     company = "会社名#{n + 1}"
@@ -82,6 +82,15 @@ puts "Admin user.created"
     description = "詳細#{n + 1}"
     admin_user.tasks.create!(name: task_name, company: company,store: store,description: description)
     guest_user.tasks.create!(name: task_name, company: company,store: store,description: description)
+  puts "Profit_Items.created"
   end
 
-  puts "Items.created"
+  3.times do |n|
+    resarch_name = "リサーチ済み商品#{n + 1}"
+    company = "会社名#{n + 1}"
+    store = "店舗名#{n + 1}"
+    description = "詳細#{n + 1}"
+    admin_user.ng_items.create!(name: resarch_name, company: company,store: store,description: description)
+    guest_user.ng_items.create!(name: resarch_name, company: company,store: store,description: description)
+  puts "Reseach_Items.created"
+  end

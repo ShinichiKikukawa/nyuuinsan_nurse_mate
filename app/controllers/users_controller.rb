@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   before_action :admin_or_correct, only: %i(show)
 
   def index
-    @users = User.paginate(page: params[:page], per_page: 20)
+    @users = User.paginate(page: params[:page], per_page: 20).order(id: "ASC")
   end
   
   def show
