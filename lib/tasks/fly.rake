@@ -10,8 +10,8 @@ namespace :fly do
   #  - changes to the filesystem made here are DISCARDED
   #  - full access to secrets, databases
   #  - failures here prevent deployment
-  task :release => 'db:migrate'
-
+  task :release => ['db:migrate', 'db:seed']
+  task :reset => ['db:mgirate:reset', 'db:migrate', 'db:seed']
   # SERVER step:
   #  - changes to the filesystem made here are deployed
   #  - full access to secrets, databases
