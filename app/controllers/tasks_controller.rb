@@ -17,8 +17,10 @@ class TasksController < ApplicationController
   
   def create
     @task = @user.tasks.build(task_params)
+    @task.image.attach(params[:task][:image]) if params[:task][:image].present?
+  
     if @task.save
-      flash[:success] = "現場で利益商品を新規作成しました！現場からは以上です！"
+      flash[:success] = "現場で電子カルテを新規作成しました！現場からは以上です！"
       redirect_to user_tasks_url @user
     else
       render :new
@@ -31,7 +33,7 @@ class TasksController < ApplicationController
   
   def update
     if @task.update_attributes(task_params)
-      flash[:success] = "現場で利益商品を更新しました。現場からは以上です！"
+      flash[:success] = "現場で電子カルテを更新しました。現場からは以上です！"
       redirect_to user_task_url(@user, @task)
     else
       render :edit
@@ -40,7 +42,7 @@ class TasksController < ApplicationController
   
   def destroy
     @task.destroy
-    flash[:success] = "現場で利益商品を削除しました。現場からは以上です！"
+    flash[:success] = "現場で電子カルテを削除しました。現場からは以上です！"
     redirect_to user_tasks_url @user
   end
   

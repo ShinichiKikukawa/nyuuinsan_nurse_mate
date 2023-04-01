@@ -1,17 +1,35 @@
 <%= form_with(model: @user, local: true) do |f| %>
   <%= render partial: 'shared/error_messages', locals: { obj: @user } %>
 
-  <%= f.label :name, class: "label-form" %>
-  <%= f.text_field :name, class: "form-control" %>
+  <div class="form-group">
+    <%= f.label :name, class: "label-form" %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
 
-  <%= f.label :email, class: "label-form" %>
-  <%= f.email_field :email, class: "form-control" %>
+  <div class="form-group">
+    <%= f.label :email, class: "label-form" %>
+    <%= f.email_field :email, class: "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :password, class: "label-form" %>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
 
-  <%= f.label :password, class: "label-form" %>
-  <%= f.password_field :password, class: "form-control" %>
-
-  <%= f.label :password_confirmation, class: "label-form" %>
-  <%= f.password_field :password_confirmation, class: "form-control" %>
-
+  <div class="form-group">
+    <%= f.label :password_confirmation, class: "label-form" %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :occupation, class: "label-form" %>
+    <%= f.select :occupation, [["患者", "患者"],["医師", "医師"], ["看護師", "看護師"], ["薬剤師", "薬剤師"], ["管理栄養士", "管理栄養士"], 
+        ["社会福祉士", "社会福祉士"],["ケアワーカー", "ケアワーカー"], ["療法士", "療法士"], ["レントゲン技師", "レントゲン技師"], ["事務", "事務"], ["清掃業者", "清掃業者"], ["その他", "その他"]],
+        {}, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :note, class: "label-form" %>
+    <%= f.text_area :note, class: "form-control" %>
+  </div>
   <%= f.submit yield(:btn_text), class: "btn btn-primary btn-block btn-form" %>
 <% end %>

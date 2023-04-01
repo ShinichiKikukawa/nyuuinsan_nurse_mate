@@ -1,6 +1,6 @@
 <% provide(:title, 'Users') %>
 
-<h1>利用者一覧</h1>
+<h1>医療者一覧</h1>
 
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
@@ -9,6 +9,7 @@
       <thead>
         <tr>
           <th><%= User.human_attribute_name :name %></th>
+          <th><%= User.human_attribute_name :occupation %></th>
         </tr>
       </thead>
   
@@ -16,7 +17,7 @@
         <% @users.each do |user| %>
           <tr>
             <td>
-              <%= link_to user.name, user %>
+              <%= link_to user.name, edit_user_path(user) %>
               <% if user.admin? %>
                 <span class="label label-primary label-user-division">管理者</span>
               <% else %>
@@ -24,12 +25,16 @@
               <% end %>
             </td>
             <td>
-               <% if user.id >=3 %>
+              <%= user.occupation %> 
+            </td>
+            <td>
+              <% if user.id >= 2 %>
                 <%= link_to "削除", user, method: :delete,
-                data: { confirm: "#{user.name}を削除します。よろしいですか？" },
-                class: "btn btn-danger btn-sm pull-right" %>
+                      data: { confirm: "#{user.name}を削除します。よろしいですか？" },
+                      class: "btn btn-danger btn-sm pull-right" %>
+                <%= link_to "基本情報編集", edit_user_path(user),
+                      class: "btn btn-success btn-sm pull-right mr-2" %>
               <% end %>
-               
             </td>
           </tr>
         <% end %>

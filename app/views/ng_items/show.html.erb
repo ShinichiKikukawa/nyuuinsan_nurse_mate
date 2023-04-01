@@ -1,6 +1,6 @@
 <% provide(:title, @user.name) %>
 
-<h1>リサーチ済み商品詳細</h1>
+<h1>投薬　詳細</h1>
 
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
@@ -17,10 +17,6 @@
         <tr>
           <th class="active"><%= NgItem.human_attribute_name :company %></th>
           <td><%= @ng_item.company %></td>
-        </tr>
-        <tr>
-          <th class="active"><%= NgItem.human_attribute_name :store %></th>
-          <td><%= @ng_item.store %></td>
         </tr>
         <tr>
           <th class="active"><%= NgItem.human_attribute_name :description %></th>

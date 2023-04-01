@@ -18,7 +18,7 @@ class NgItemsController < ApplicationController
   def create
     @ng_item = @user.ng_items.build(ng_item_params)
     if @ng_item.save
-      flash[:success] = "現場でリサーチ済み商品を新規作成しました！現場からは以上です！"
+      flash[:success] = "現場で投薬を新規作成しました！現場からは以上です！"
       redirect_to user_ng_items_url @user
     else
       render :new
@@ -31,7 +31,7 @@ class NgItemsController < ApplicationController
   
   def update
     if @ng_item.update_attributes(ng_item_params)
-      flash[:success] = "現場でリサーチ済み商品を更新しました。現場からは以上です！"
+      flash[:success] = "現場で投薬を更新しました。現場からは以上です！"
       redirect_to user_ng_items_url(@user, @ng_item)
     else
       render :edit
@@ -40,7 +40,7 @@ class NgItemsController < ApplicationController
   
   def destroy
     @ng_item.destroy
-    flash[:success] = "現場でリサーチ済み商品を削除しました。現場からは以上です！"
+    flash[:success] = "現場で投薬を削除しました。現場からは以上です！"
     redirect_to user_ng_items_url @user
   end
   

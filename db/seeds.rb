@@ -4,93 +4,123 @@ User.create!( name: "管理者",
               email: "sample@email.com",
               password: "password",
               password_confirmation: "password",
+              occupation: "患者",
+              note: "",
               admin: true)
 
-puts "Admin user.created"
+puts "Admin-user.created!"
 
- User.create!(name: "ドラえもん",
-               email: "sample-1@email.com",
-               password: "password",
-               password_confirmation: "password",
-               admin: false)
- 
-  User.create!(name: "のび太",
-               email: "sample-2@email.com",
-               password: "password",
-               password_confirmation: "password",
-               admin: false)
-              
-  User.create!(name: "しずかちゃん",
-               email: "sample-3@email.com",
-               password: "password",
-               password_confirmation: "password",
-               admin: false)
-              
-  User.create!(name: "スネ夫",
-               email: "sample-4@email.com",
-               password: "password",
-               password_confirmation: "password",
-               admin: false)
-              
-  User.create!(name: "ジャイアン",
-               email: "sample-5@email.com",
-               password: "password",
-               password_confirmation: "password",
-               admin: false)
-              
-  User.create!(name: "のび太ママ",
-               email: "sample-6@email.com",
-               password: "password",
-               password_confirmation: "password",
-               admin: false)
+User.create!(name: "寺林秀隆先生",
+              email: "sample-1@email.com",
+              password: "password",
+              password_confirmation: "password",
+              occupation: "医師",
+              note: "",
+              admin: false)
 
-  User.create!(name: "のび太パパ",
-               email: "sample-7@email.com",
-               password: "password",
-               password_confirmation: "password",
-               admin: false)
+User.create!(name: "永福瑞恵さん",
+              email: "sample-2@email.com",
+              password: "password",
+              password_confirmation: "password",
+              occupation: "看護師",
+              note: "",
+              admin: false)
               
-  User.create!(name: "ドラミちゃん",
-               email: "sample-8@email.com",
-               password: "password",
-               password_confirmation: "password",
-               admin: false)
+User.create!(name: "木村知子さん",
+              email: "sample-3@email.com",
+              password: "password",
+              password_confirmation: "password",
+              occupation: "看護師",
+              note: "",
+              admin: false)
+              
+User.create!(name: "山本さん",
+              email: "sample-4@email.com",
+              password: "password",
+              password_confirmation: "password",
+              occupation: "看護師",
+              note: "",
+              admin: false)
+
+User.create!(name: "岡田さん",
+              email: "sample-5@email.com",
+              password: "password",
+              password_confirmation: "password",
+              occupation: "看護師",
+              note: "",
+              admin: false)
   
-  8.times do |n|
-  puts "User#{n+1}.created!"
-  end
+User.create!(name: "石井さん",
+              email: "sample-6@email.com",
+              password: "password",
+              password_confirmation: "password",
+              occupation: "看護師",
+              note: "",
+              admin: false)   
   
-  22.times do |n|
-    name  = Faker::Name.name
-    email = "sample-#{n+9}@email.com"
-    password = "password"
-    User.create!(name: name,
-                 email: email,
-                 password: password,
-                 password_confirmation: password,
-                 admin: false)
-  puts "User#{n+9}.created"
-  end
+User.create!(name: "山田さん",
+              email: "sample-7@email.com",
+              password: "password",
+              password_confirmation: "password",
+              occupation: "看護師",
+              note: "",
+              admin: false)  
+              
+User.create!(name: "福谷裕子さん",
+              email: "sample-8@email.com",
+              password: "password",
+              password_confirmation: "password",
+              occupation: "薬剤師",
+              note: "",
+              admin: false)
+  
+User.create!(name: "川上奈菜さん",
+              email: "sample-9@email.com",
+              password: "password",
+              password_confirmation: "password",
+              occupation: "社会福祉士",
+              note: "",
+              admin: false)
+              
+User.create!(name: "北原利恵さん",
+              email: "sample-10@email.com",
+              password: "password",
+              password_confirmation: "password",
+              occupation: "管理栄養士",
+              note: "",
+              admin: false)
 
+User.create!(name: "東さん",
+              email: "sample-11@email.com",
+              password: "password",
+              password_confirmation: "password",
+              occupation: "管理栄養士",
+              note: "",
+              admin: false)
+  
   admin_user = User.first
   guest_user = User.find(2)
 
-  3.times do |n|
-    task_name = "利益商品#{n + 1}"
-    company = "会社名#{n + 1}"
-    store = "店舗名#{n + 1}"
-    description = "詳細#{n + 1}"
-    admin_user.tasks.create!(name: task_name, company: company,store: store,description: description)
-    guest_user.tasks.create!(name: task_name, company: company,store: store,description: description)
-  puts "Profit_Items.created"
+  10.times do |n|
+  puts "User-#{n+1}.created!"
   end
 
-  3.times do |n|
-    resarch_name = "リサーチ済み商品#{n + 1}"
-    company = "会社名#{n + 1}"
-    store = "店舗名#{n + 1}"
-    description = "詳細#{n + 1}"
-    admin_user.ng_items.create!(name: resarch_name, company: company,store: store,description: description)
-    guest_user.ng_items.create!(name: resarch_name, company: company,store: store,description: description)
-  puts "Reseach_Items.created"
+  1.times do |n|
+    task_name = "日付#{n + 1}"
+    company = "所感#{n + 1}"
+    description = "注意事項#{n + 1}"
+  
+    admin_user.tasks.create!(name: task_name, company: company ,description: description)
+    guest_user.tasks.create!(name: task_name, company: company ,description: description)
+  puts "karutes.created"
+  end
+
+  1.times do |n|
+    resarch_name = "薬名#{n + 1}"
+    company = "効能#{n + 1}"
+    description = "注意事項#{n + 1}"
+    
+    admin_user.ng_items.create!(name: resarch_name, company: company, description: description)
+    guest_user.ng_items.create!(name: resarch_name, company: company, description: description)
+  puts "kusuries.created"
   end

@@ -1,6 +1,6 @@
 <% provide(:title, 'Edit Profit Items') %>
 
-<h1>利益商品編集</h1>
+<h1>電子カルテ（自己申告）</h1>
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
@@ -11,13 +11,11 @@
       <%= f.text_field :name, class: "form-control" %>
       
       <%= f.label :company, class: "label-form" %>
-      <%= f.text_field :company, class: "form-control" %>
-      
-      <%= f.label :store, class: "label-form" %>
-      <%= f.text_field :store, class: "form-control" %>
+      <%= f.text_area :company, rows: 10, class:"form-control" %><br>
 
       <%= f.label :description, class: "label-form" %>
-      <%= f.text_area :description, rows: 5, class: "form-control" %>
+      <%= f.text_area :description, rows: 10, class: "form-control", 
+      value: '' %>
 
       <%= f.submit "更新", class: "btn btn-primary btn-form" %>
       <%= link_to "キャンセル", user_tasks_path(@user), class: "btn btn-default btn-form" %>

@@ -1,17 +1,16 @@
 <% provide(:title, @user.name) %>
 
-<h1><%= @user.name %>のリサーチ済み商品一覧</h1>
+<h1><%= @user.name %>の投薬リスト一覧</h1>
 
 
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
-    <%= link_to "リサーチ済み商品新規作成", new_user_ng_item_path(@user),class: "btn btn-lg btn-primary pull-right" %>
+    <%= link_to "投薬　新規作成", new_user_ng_item_path(@user),class: "btn btn-lg btn-primary pull-right" %>
     <table class="table table-hover" id="table-tasks" >
       <thead>
         <tr>
           <th><%= NgItem.human_attribute_name :name %></th>
           <th><%= NgItem.human_attribute_name :company %></th>
-          <th><%= NgItem.human_attribute_name :store %></th>
           <th><%= NgItem.human_attribute_name :description %></th>
           <th><%= NgItem.human_attribute_name :created_at %></th>
           <th></th>
@@ -20,18 +19,17 @@
       
       <tbody>
         <% @ng_items.each do |ng_item| %>
-         <tr>
-           <td><%= link_to ng_item.name, user_ng_item_path(@user, ng_item), id: "task-name" %></td>
-           <td><%= link_to ng_item.company, user_ng_item_path(@user, ng_item), id: "task-name" %></td>
-           <td><%= link_to ng_item.store, user_ng_item_path(@user, ng_item), id: "task-name" %></td>
-           <td><%= link_to ng_item.description, user_ng_item_path(@user, ng_item), id: "task-name" %></td>
-           <td><%= l(ng_item.created_at, format: :long) %></td> 
-           <td>
-            <%= link_to "編集", edit_user_ng_item_path(@user, ng_item), class: "btn btn-success" %>
-            <%= link_to "削除", user_ng_item_path(@user, ng_item), method: :delete,
-            data: { confirm: "「#{ng_item.name}」を削除します。よろしいですか？"}, class: "btn btn-danger" %>
-          </td>
-         </tr> 
+          <tr>
+            <td><%= link_to ng_item.name, user_ng_item_path(@user, ng_item), id: "task-name" %></td>
+            <td><%= link_to ng_item.company, user_ng_item_path(@user, ng_item), id: "task-name" %></td>
+            <td><%= link_to ng_item.description, user_ng_item_path(@user, ng_item), id: "task-name" %></td>
+            <td><%= l(ng_item.created_at, format: :long) %></td> 
+            <td>
+              <%= link_to "編集", edit_user_ng_item_path(@user, ng_item), class: "btn btn-success" %>
+              <%= link_to "削除", user_ng_item_path(@user, ng_item), method: :delete,
+              data: { confirm: "「#{ng_item.name}」を削除します。よろしいですか？"}, class: "btn btn-danger" %>
+            </td>
+          </tr> 
         <% end %>
       </tbody>
     </table>

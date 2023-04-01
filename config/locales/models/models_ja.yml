@@ -10,21 +10,22 @@ ja:
           email: メールアドレス
           password: パスワード
           password_confirmation: パスワード再入力
+          occupation: 職種
+          note: 備考
           created_at: 作成日
           updated_at: 更新日
         task:
           id: ID
-          name: 利益商品名
-          company: 会社名
-          store: 店舗名
-          description: 詳細
+          name: 日付
+          company: 所感
+          description: 注意事項
+          image: 画像
           created_at: 作成日
           updated_at: 更新日
         ng_item:
           id: ID
-          name: リサーチ済み商品名
-          company: 会社名
-          store: 店舗名
-          description: 詳細
+          name: 投薬する薬名
+          company: 効能
+          description: 注意事項
           created_at: 作成日
           updated_at: 更新日
