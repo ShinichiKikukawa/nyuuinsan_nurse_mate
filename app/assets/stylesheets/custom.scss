@@ -5,9 +5,13 @@
 
 /* 共通 */
 
-body {
-  padding-top: 60px;
-}
+// body {
+//
+  body {
+    padding-top: 60px;
+    background-image: url("/nurse3.jpeg");
+    background-size: cover;
+  }
 
 section {
   overflow: auto;
@@ -98,6 +102,8 @@ li .dropdown-header {
   background-color: rgba(200, 200, 200, 0.5);
   font-weight: bold;
 }
+
+
 /* デバッグウインドウ */
 
 .debug_dump {
@@ -147,3 +153,4 @@ li .dropdown-header {
 .about-img {
   width: 100%;
 }
+

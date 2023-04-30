@@ -6,6 +6,7 @@ ja:
     attributes:
         user:
           id: ID
+          date: 日付
           name: 名前
           email: メールアドレス
           password: パスワード
@@ -16,6 +17,7 @@ ja:
           updated_at: 更新日
         task:
           id: ID
+          date: 日付
           name: 日付
           company: 所感
           description: 注意事項

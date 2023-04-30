@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   before_action :correct_user
 
   def index
-    @tasks = @user.tasks
+    @tasks = @user.tasks.where.not(date: nil)
   end
 
   def show
@@ -32,7 +32,6 @@ class TasksController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -48,7 +47,6 @@ class TasksController < ApplicationController
     end
   end
 
-
   def destroy
     @task.destroy
     flash[:success] = "現場で電子カルテを削除しました。現場からは以上です！"
@@ -58,11 +56,15 @@ class TasksController < ApplicationController
   private
 
     def task_params
-      params.require(:task).permit(:name, :company, :store, :description, :avatar)
+      params.require(:task).permit(:name, :company, :store, :description, :avatar, :date)
     end
 
     def set_user
-      @user = User.find(params[:user_id])
+      @user = User.find_by(id: params[:user_id])
+      unless @user
+        flash[:danger] = "ユーザーが存在しません。"
+        redirect_to root_url
+      end
     end
 
     def set_task
