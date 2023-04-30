@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221224205302) do
+ActiveRecord::Schema.define(version: 2023_04_28_155814) do
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "ng_items", force: :cascade do |t|
     t.string "name"
@@ -23,21 +44,14 @@ ActiveRecord::Schema.define(version: 20221224205302) do
   end
 
   create_table "tasks", force: :cascade do |t|
+    t.date "date"
     t.string "name"
     t.text "description"
+    t.text "company"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "store"
-    t.string "company"
-    t.integer "amazon"
-    t.integer "mercari"
-    t.integer "expense"
-    t.string "leadtime"
-    t.date "paymentday"
-    t.integer "profit"
-    t.string "keepa"
-    t.integer "purchase"
     t.index ["user_id", "created_at"], name: "index_tasks_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end

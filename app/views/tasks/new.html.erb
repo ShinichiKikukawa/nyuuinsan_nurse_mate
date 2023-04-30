@@ -4,22 +4,26 @@
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <%= form_with(model: @task, url: user_tasks_path(@user), local: true) do |f| %>
+    <%= form_with(model: @task, url: user_tasks_path(@user), local: true, html: { enctype: "multipart/form-data" }) do |f| %>
       <%= render partial: 'shared/error_messages', locals: { obj: @task } %>
-      
-      <%= f.label :name, class: "label-form" %>
-      <%= f.text_field :name, class: "form-control" %>
-      
+
+      <%= f.label :date %>
+      <%= f.date_field :date, class: "form-control", "data-provide": "datepicker" %>
+
+
+      <%# <%= f.label :name, class: "label-form" %>
+      <%# <%= f.text_field :name, class: "form-control" %> 
+
       <%= f.label :company, class: "label-form" %>
-      <%= f.text_area :company, rows: 10, class:"form-control" %><br>
-      
+      <%= f.text_area :company, rows: 4, class:"form-control" %><br>
+
       <%= f.label :description, class: "label-form" %>
-      <%= f.text_area :description, rows: 10, class: "form-control", 
+      <%= f.text_area :description, rows: 4, class: "form-control",
       value: '' %>
 
-      <%= f.label :image, class: "label-form" %>
-      <%= f.file_field :image, rows: 10, class: "form-control" %>
-      
+      <%= f.label :avatar, class: "label-form" %>
+      <%= f.file_field :avatar, class: "form-control" %>
+
       <%= f.submit "新規登録", class: "btn btn-lg btn-primary btn-form" %>
     <% end %>
   </div>
