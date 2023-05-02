@@ -1,5 +1,7 @@
 {
   "name": "attendance_app",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.6.4"
+  }
 }
