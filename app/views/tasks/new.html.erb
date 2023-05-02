@@ -1,30 +1,33 @@
 <% provide(:title, 'Recover') %>
 
-<h1>電子カルテ（自己申告）　新規作成</h1>
+<body class="new">
+  <div class="form-wrapper" style="background-color: rgba(255, 255, 255, 0.5); opacity: 0.8;">
+    <h1>電子カルテ（自己申告）　新規作成</h1>
 
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <%= form_with(model: @task, url: user_tasks_path(@user), local: true, html: { enctype: "multipart/form-data" }) do |f| %>
-      <%= render partial: 'shared/error_messages', locals: { obj: @task } %>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <%= form_with(model: @task, url: user_tasks_path(@user), local: true, html: { enctype: "multipart/form-data" }) do |f| %>
+          <%= render partial: 'shared/error_messages', locals: { obj: @task } %>
 
-      <%= f.label :date %>
-      <%= f.date_field :date, class: "form-control", "data-provide": "datepicker" %>
+          <%= f.label :date %>
+          <%= f.date_field :date, class: "form-control", "data-provide": "datepicker" %>
 
 
-      <%# <%= f.label :name, class: "label-form" %>
-      <%# <%= f.text_field :name, class: "form-control" %> 
+          <%# <%= f.label :name, class: "label-form" %>
+          <%# <%= f.text_field :name, class: "form-control" %> 
 
-      <%= f.label :company, class: "label-form" %>
-      <%= f.text_area :company, rows: 4, class:"form-control" %><br>
+          <%= f.label :company, class: "label-form" %>
+          <%= f.text_area :company, rows: 4, class:"form-control" %><br>
 
-      <%= f.label :description, class: "label-form" %>
-      <%= f.text_area :description, rows: 4, class: "form-control",
-      value: '' %>
+          <%= f.label :description, class: "label-form" %>
+          <%= f.text_area :description, rows: 4, class: "form-control",
+          value: '' %>
 
-      <%= f.label :avatar, class: "label-form" %>
-      <%= f.file_field :avatar, class: "form-control" %>
+          <%= f.label :avatar, class: "label-form" %>
+          <%= f.file_field :avatar, class: "form-control" %>
 
-      <%= f.submit "新規登録", class: "btn btn-lg btn-primary btn-form" %>
-    <% end %>
+          <%= f.submit "新規登録", class: "btn btn-lg btn-primary btn-form" %>
+        <% end %>
+      </div>
   </div>
-</div>
+</body>

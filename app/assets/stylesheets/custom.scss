@@ -2,16 +2,40 @@
 @import "bootstrap";
 @import 'jquery-ui/datepicker';
 
-
 /* 共通 */
 
-// body {
-//
-  body {
-    padding-top: 60px;
-    background-image: url("/nurse3.jpeg");
-    background-size: cover;
-  }
+/* topページ */
+body{
+  padding-top: 60px;
+}
+
+body.top {
+  padding-top: 60px;
+  background-image: url("/nurse17.jpeg");
+  background-size: cover;
+}
+
+body.about {
+  background-image: url("/nurse4.jpeg");
+  background-size: cover;
+}
+
+/* newページ */
+body.new {
+  background-image: url("/nurse3.jpeg");
+  background-size: cover;
+}
+
+/* indexページ */
+body.index {
+  background-image: url("/C.jpeg");
+}
+
+/* その他のページ */
+body {
+  background-image: url("/D.jpeg");
+}
+
 
 section {
   overflow: auto;
@@ -85,7 +109,6 @@ p {
   }
 }
 
-
 li .header-list {
   color: #000000 !important;
   font-weight: bold;
@@ -103,6 +126,47 @@ li .dropdown-header {
   font-weight: bold;
 }
 
+/* 画像を揃える */
+.img-fluid {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+/* ボタンを真ん中に配置する */
+.form-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+
+.label-form {
+  font-weight: bold;
+}
+
+
+/* ボタンの幅を揃えて広げる */
+.btn-form {
+  width: 380px; /* ボタンの幅を適切な値に調整してください */
+  margin-top: 10px;
+}
+
+.avatar-upload {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar-input {
+  margin-top: 10px;
+}
+
+.btn-form {
+  margin-top: 15px;
+  margin-right: 5px;
+}
 
 /* デバッグウインドウ */
 
@@ -134,23 +198,16 @@ li .dropdown-header {
 }
 
 /* about */
-
 .about-main {
-  padding: 50px 8% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.about-main h2 {
-  font-size: 30px;
-  font-weight: 500;
-  line-height: 1.4;
+.about-main img {
+  max-width: 100%;
 }
 
 .about-main p {
-  font-weight: 200;
-  font-size: 20px;
+  text-align: center;
 }
-
-.about-img {
-  width: 100%;
-}
-

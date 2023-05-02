@@ -22,6 +22,7 @@ ja:
           company: 所感
           description: 注意事項
           image: 画像
+          avatar: 画像
           created_at: 作成日
           updated_at: 更新日
         ng_item:

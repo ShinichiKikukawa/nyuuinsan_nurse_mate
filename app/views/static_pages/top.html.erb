@@ -1,20 +1,43 @@
-<% provide(:title, "Top") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Top</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-<div class="row">
-  <div class="col-md-8">
-    <div class="center jumbotron" id="top-main">
-      <h1 id="top-main-title">入院さんナースメイト</h1>
-      <p>"入院さんナースメイト"はwebエンジニアの患者が全く趣味で作った患者自己申告型電子カルテです。</p><br>
-      <p>お医者さんと看護師さんの言うことをよく聞いて<br>いい患者となり、患者サイドの自己申告を報連相のログとして残しておき、医療の認識の齟齬を解消することに寄与します。<br>安心・安全で楽しい入院生活にご利用下さい。<br>ちゃんと退院できたらお礼状を送ります。</p>
-      <p>↓↓初めてのご利用↓↓</p>
-      <% if logged_in? %>
-        <%= link_to "アカウント作成", signup_path, class: "btn btn-lg btn-success #{"disabled" unless current_user.admin?}"  %>
-      <% else %>
-        <%= link_to "アカウント作成", signup_path, class: "btn btn-lg btn-success" %>
-      <% end %>
-    </div>
-  </div>
+    <!-- Bootstrap CSS -->
+    <%# <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' %>
+    <%# <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %> %> %>
+
+    <!-- スタイルシート -->
+    <%# <%= stylesheet_link_tag 'styles.css' %>
+
+    <%# <!-- JavaScript -->
+    <%= javascript_include_tag 'https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity: 'sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin: 'anonymous' %>
+    <%# <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', integrity: 'sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin: 'anonymous' %> %>
+    <%# <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', integrity: 'sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa', crossorigin: 'anonymous' %> %> %>
+  </head>
+  <body class="top">
+    <% provide(:title, "Top") %>
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="center jumbotron" id="top-main">
+          <h1 id="top-main-title">入院さんナースメイト</h1>
+          <p>"入院さんナースメイト"はwebエンジニアの患者が全く趣味で作った患者自己申告型電子カルテです。</p><br>
+          <p>お医者さんと看護師さんの言うことをよく聞いて<br>いい患者となり、患者サイドの自己申告を報連相のログとして残しておき、医療の認識の齟齬を解消することに寄与します。<br>安心・安全で楽しい入院生活にご利用下さい。<br>ちゃんと退院できたらお礼状を送ります。</p>
+          <p>↓↓初めてのご利用↓↓</p>
+          <% if logged_in? %>
+            <%= link_to "アカウント作成", signup_path, class: "btn btn-lg btn-success #{"disabled" unless current_user.admin?}"  %>
+          <% else %>
+            <%= link_to "アカウント作成", signup_path, class: "btn btn-lg btn-success" %>
+          <% end %>
+        </div>
+      </div>
   <div class="col-md-4">
+    <p>　</p>
+    <p>　</p>
+    <p>　</p>
     <p>　</p>
     <p>　</p>
     <p>　</p>

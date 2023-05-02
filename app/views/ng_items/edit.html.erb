@@ -1,4 +1,4 @@
-<% provide(:title, 'Edit NG Items') %>
+<% provide(:title, 'Edit touyaku') %>
 
 <h1>投薬編集</h1>
 
@@ -6,18 +6,20 @@
   <div class="col-md-8 col-md-offset-2">
     <%= form_with(model: @ng_item, url: user_ng_item_path(@user, @ng_item), local: true, method: :patch) do |f| %>
       <%= render partial: 'shared/error_messages', locals: { obj: @ng_item } %>
-      
+
       <%= f.label :name, class: "label-form" %>
       <%= f.text_field :name, class: "form-control" %>
-      
+
       <%= f.label :company, class: "label-form" %>
       <%= f.text_field :company, class: "form-control" %>
 
       <%= f.label :description, class: "label-form" %>
       <%= f.text_area :description, rows: 5, class: "form-control" %>
 
-      <%= f.submit "更新", class: "btn btn-primary btn-form" %>
-      <%= link_to "キャンセル", user_ng_items_path(@user), class: "btn btn-default btn-form" %>
+      <div class="form-buttons">
+        <%= f.submit "更新", class: "btn btn-primary btn-form" %>
+        <%= link_to "キャンセル", user_ng_items_path(@user), class: "btn btn-default btn-form" %>
+      </div>
     <% end %>
   </div>
 </div>

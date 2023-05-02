@@ -35,7 +35,7 @@ class TasksController < ApplicationController
   end
 
   def update
-    if task_params[:remove_avatar].present? && @task.avatar.attached?
+    if task_params[:remove_avatar] == "1" && @task.avatar.attached?
       @task.avatar.purge
     end
 
@@ -56,7 +56,7 @@ class TasksController < ApplicationController
   private
 
     def task_params
-      params.require(:task).permit(:name, :company, :store, :description, :avatar, :date)
+      params.require(:task).permit(:name, :company, :store, :description, :avatar, :date, :remove_avatar)
     end
 
     def set_user
