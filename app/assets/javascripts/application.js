@@ -16,7 +16,7 @@
 //= require jquery-ui/widgets/datepicker
 //= require bootstrap
 //= require turbolinks
-//= require image_zoom
+
 //= require_tree .
 
 

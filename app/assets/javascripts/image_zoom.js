@@ -9,3 +9,4 @@ document.addEventListener("turbolinks:load", () => {
     $(this).fadeOut();
   });
 });
+console.log("test")
