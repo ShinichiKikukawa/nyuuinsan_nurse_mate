@@ -1,6 +1,6 @@
-<% provide(:title, 'Edit touyaku') %>
+<% provide(:title, 'Edit meals') %>
 
-<h1>投薬編集</h1>
+<h1>食事の献立表 編集</h1>
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
@@ -22,4 +22,54 @@
       </div>
     <% end %>
   </div>
+</div>
+
+<% provide(:title, 'Edit Profit Items') %>
+
+<h1>電子カルテ（自己申告）編集</h1>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <%= form_with(model: @task, url: user_task_path(@user, @task), local: true, method: :patch) do |f| %>
+      <%= render partial: 'shared/error_messages', locals: { obj: @task } %>
+
+      <%= f.label :name, class: "label-form" %>
+      <%= f.text_field :name, class: "form-control" %>
+
+      <%= f.label :company, class: "label-form" %>
+      <%= f.text_area :company, rows: 5, class:"form-control" %><br>
+
+      <%= f.label :description, class: "label-form" %>
+      <%= f.text_area :description, rows: 5, class: "form-control" %>
+
+      <%= f.label :avatar, class: "label-form" %>
+      <div class="image-upload">
+        <% if @task.avatar.attached? && @task.avatar.variable? %>
+          <% if heic_image?(@task.avatar) %>
+            <%= image_tag @task.avatar.variant(convert: "jpg").processed, alt: '画像', class: 'img-fluid image-thumbnail', data: { large_image_url: url_for(@task.avatar) } %>
+          <% else %>
+            <%= image_tag @task.avatar.variant(resize: "100x100!").processed, alt: '画像', class: 'img-fluid image-thumbnail', data: { large_image_url: url_for(@task.avatar) } %>
+          <% end %>
+          <div class="image-options">
+            <%= f.check_box :remove_avatar %>
+            <%= f.label :remove_avatar, class: 'label-form' do %>
+              <%= "画像を削除する" %>
+            <% end %>
+          </div>
+        <% else %>
+          <p>画像なし</p>
+        <% end %>
+        <%= f.file_field :avatar, direct_upload: true %>
+      </div>
+
+      <div class="form-buttons">
+        <%= f.submit "更新", class: "btn btn-primary btn-form" %>
+        <%= link_to "キャンセル", user_tasks_path(@user), class: "btn btn-default btn-form" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div id="image-modal">
+  <img src="" alt="Large image">
 </div>

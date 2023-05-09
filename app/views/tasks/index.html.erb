@@ -1,48 +1,54 @@
 <% provide(:title, @user.name) %>
 
-<h1><%= @user.name %>の電子カルテ一覧</h1>
+<body class="index">
+  <h1><%= @user.name %>の電子カルテ一覧</h1>
 
-<div class="row">
-  <div class="col-md-10 col-md-offset-1">
-    <%= link_to "電子カルテリスト作成", new_user_task_path(@user),class: "btn btn-lg btn-primary pull-right" %>
-    <table class="table table-hover" id="table-tasks" >
-      <thead>
-        <tr>
-          <th><%= Task.human_attribute_name :date %></th>
-          <th><%= Task.human_attribute_name :company %></th>
-          <th><%= Task.human_attribute_name :description %></th>
-          <th><%= Task.human_attribute_name :image %></th>
-          <th><%= Task.human_attribute_name :created_at %></th>
-          <th></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @tasks.each do |task| %>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <%= link_to "電子カルテリスト作成", new_user_task_path(@user), class: "btn btn-lg btn-primary pull-right" %>
+      <table class="table table-hover" id="table-tasks">
+        <thead>
           <tr>
-            <td><%= link_to l(task.date, format: :long), user_task_path(@user, task), id: "task-date" %></td>
-            <td><%= link_to task.company, user_task_path(@user, task), id: "task-name" %></td>
-            <td><%= link_to task.description, user_task_path(@user, task), id: "task-name" %></td>
-            <% if task.avatar.attached? && task.avatar.image? %>
-              <td style="max-width: 500px; max-height: 500px;">
-                <%= image_tag task.avatar.variant(resize: "100x100!").processed, alt: '画像', class: 'img-fluid image-thumbnail', data: { large_image_url: rails_blob_url(task.avatar) } %>
-              </td>
-            <% else %>
-              <td>画像なし</td>
-            <% end %>
+            <th><%= Task.human_attribute_name :date %></th>
+            <th><%= Task.human_attribute_name :company %></th>
+            <th><%= Task.human_attribute_name :description %></th>
+            <th><%= Task.human_attribute_name :image %></th>
+            <th><%= Task.human_attribute_name :created_at %></th>
+            <th></th>
+          </tr>
+        </thead>
 
-            <td><%= l(task.created_at, format: :long) %></td>
-            <td>
-            <%= link_to "編集", edit_user_task_path(@user, task), class: "btn btn-success" %>
-            <%= link_to "削除", user_task_path(@user, task), method: :delete,
-            data: { confirm: "「#{task.name}」を削除します。よろしいですか？"}, class: "btn btn-danger" %>
-            </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+        <tbody>
+          <% @tasks.each do |task| %>
+            <tr>
+              <td><%= link_to l(task.date, format: :long), user_task_path(@user, task), id: "task-date" %></td>
+              <td><%= link_to task.company, user_task_path(@user, task), id: "task-name" %></td>
+              <td><%= link_to task.description, user_task_path(@user, task), id: "task-name" %></td>
+              <% if task.avatar.attached? && task.avatar.variable? %>
+                <td style="max-width: 500px; max-height: 500px;">
+                  <% if heic_image?(task.avatar) %>
+                    <%= image_tag task.avatar.variant(convert: "jpg", resize: "100x100!").processed, alt: '画像', class: 'img-fluid image-thumbnail', data: { large_image_url: rails_blob_url(task.avatar) } %>
+                  <% else %>
+                    <%= image_tag task.avatar.variant(resize: "100x100!").processed, alt: '画像', class: 'img-fluid image-thumbnail', data: { large_image_url: rails_blob_url(task.avatar) } %>
+                  <% end %>
+                </td>
+              <% else %>
+                <td>画像なし</td>
+              <% end %>
+
+              <td><%= l(task.created_at, format: :long) %></td>
+              <td>
+                <%= link_to "編集", edit_user_task_path(@user, task), class: "btn btn-success" %>
+                <%= link_to "削除", user_task_path(@user, task), method: :delete,
+                data: { confirm: "「#{task.name}」を削除します。よろしいですか？"}, class: "btn btn-danger" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
+</body>
 
 <div id="image-modal">
   <img src="" alt="Large image">

@@ -19,16 +19,19 @@ ja:
           id: ID
           date: 日付
           name: 日付
-          company: 所感
-          description: 注意事項
+          company: 飲むべきお薬
+          description: 自己電子カルテ(所感)
           image: 画像
           avatar: 画像
           created_at: 作成日
           updated_at: 更新日
         ng_item:
           id: ID
-          name: 投薬する薬名
-          company: 効能
+          date: 日付
+          name: 日付
+          company: 備考
           description: 注意事項
+          image: 画像
+          avatar: 画像
           created_at: 作成日
           updated_at: 更新日

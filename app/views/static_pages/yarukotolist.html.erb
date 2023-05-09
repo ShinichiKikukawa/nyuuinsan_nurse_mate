@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Todo List App</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  </head>
+    <style>
+      body, html {
+        height: 100%;
+        margin: 0;
+        padding: 28px;
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        height: 100%;
+      }
+
+      .section {
+        flex: 1 0 50%;
+        height: 50%;
+        box-sizing: border-box;
+        padding: 15px;
+        border: 1px solid black;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+      }
+
+      ul {
+        flex: 1;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .task {
+        position: relative;
+        padding-right: 30px;
+        margin-bottom: 2px;
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .task::before {
+        content: "•";
+        margin-right: 5px;
+      }
+
+      .task-text {
+        flex: 1;
+      }
+
+      .task-remove {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%); /* 上下中央に配置 */
+      }
+
+      @media print {
+        body, html {
+          width: 297mm;
+          height: 210mm;
+        }
+        .container {
+          height: calc(100vh - 50px); /* 50pxはヘッダーの高さ */
+        }
+
+        .section {
+          width: 50%;
+          height: 50%;
+        }
+      }
+      .completed {
+        text-decoration: line-through;
+        color: red;
+      }
+
+      input {
+        width: 100%;
+        max-width: 160px; /* 幅を200pxに設定 */
+        box-sizing: border-box;
+      }
+    </style>
+  <body class="yarukotolost">
+    <div class="container">
+      <div class="section">
+        <h4 style="margin: 0">やることリスト【緊急かつ重要】</h4>
+        <input id="input1" placeholder="ここにタスクを入力‥">
+        <ul id="list1"></ul>
+      </div>
+      <div class="section">
+        <h4 style="margin: 0; display:flex; justify-content: space-between; align-items: center;">【緊急でないが重要】<div id="dateDisplay" style="margin-right: 1cm; text-align: right;"></div></h4>
+        <input id="input2" placeholder="ここにタスクを入力‥">
+        <ul id="list2"></ul>
+      </div>
+      <div class="section">
+        <h4 style="margin: 0">【緊急だが重要ではない】</h4>
+        <input id="input3" placeholder="ここにタスクを入力‥">
+        <ul id="list3"></ul>
+      </div>
+      <div class="section">
+        <h4 style="margin: 0">【緊急でも重要でもない】</h4>
+        <input id="input4" placeholder="ここにタスクを入力‥">
+        <ul id="list4"></ul>
+      </div>
+    </div>
+
+    <script>
+      function addTask(inputSelector, listSelector) {
+        var input = $(inputSelector);
+        var list = $(listSelector);
+        var newTask = input.val().trim();
+
+        if (newTask) {
+          var task = $('<li></li>')
+            .addClass('task')
+            .click(function() {
+              $(this).toggleClass('completed');
+            });
+
+          var taskText = $('<span></span>')
+            .addClass('task-text')
+            .text(newTask);
+          task.append(taskText);
+
+          var removeButton = $('<span>×</span>')
+            .addClass('task-remove')
+            .click(function(event) {
+              event.stopPropagation();
+              $(this).parent().remove();
+            });
+          task.append(removeButton);
+
+          list.append(task);
+          input.val('');
+        }
+      }
+
+      $('#input1').on('keyup', function(event) {
+        if (event.keyCode === 13) {
+          addTask('#input1', '#list1');
+        }
+      });
+
+      $('#input2').on('keyup', function(event) {
+        if (event.keyCode === 13) {
+          addTask('#input2', '#list2');
+        }
+      });
+
+      $('#input3').on('keyup', function(event) {
+        if (event.keyCode === 13) {
+          addTask('#input3', '#list3');
+        }
+      });
+
+      $('#input4').on('keyup', function(event) {
+        if (event.keyCode === 13) {
+          addTask('#input4', '#list4');
+        }
+      });
+
+     // 日付の表示
+      const now = new Date();
+      const options = {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        weekday: 'short'
+      };
+      const formattedDate = now.toLocaleDateString('ja-JP', options);
+      $('#dateDisplay').text(formattedDate);
+
+
+
+      // 初期データの追加
+      addTask('#input1', '#list1');
+      addTask('#input1', '#list1');
+      // タスクの保存
+      function saveTasks() {
+        var lists = $('.container').find('ul');
+        for (var i = 0; i < lists.length; i++) {
+          var tasks = $(lists[i]).find('.task');
+          var taskArray = [];
+          for (var j = 0; j < tasks.length; j++) {
+            var taskText = $(tasks[j]).find('.task-text').text();
+            taskArray.push(taskText);
+          }
+          localStorage.setItem('list' + (i + 1), JSON.stringify(taskArray));
+        }
+      }
+
+      // ページの読み込み時にタスクを読み込む
+      $(document).ready(function() {
+        for (var i = 0; i < 4; i++) {
+          var listSelector = '#list' + (i + 1);
+          var tasks = JSON.parse(localStorage.getItem('list' + (i + 1)));
+          if (tasks) {
+            for (var j = 0; j < tasks.length; j++) {
+              addTask('#input' + (i + 1), listSelector, tasks[j]);
+            }
+          }
+          updateCount(listSelector);
+        }
+      });
+
+      // タスクを追加したり削除したりした後、保存する
+      $('.container').on('click', '.task', function() {
+        saveTasks();
+      }).on('click', '.task-remove', function() {
+        saveTasks();
+      });
+
+      // ページを閉じるときにも保存する
+      $(window).on('beforeunload', function() {
+        saveTasks();
+      });
+    </script>
+  </body>
+</html>
+

@@ -13,27 +13,73 @@ body.top {
   padding-top: 60px;
   background-image: url("/nurse17.jpeg");
   background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 body.about {
+  padding-top: 60px;
   background-image: url("/nurse4.jpeg");
   background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+body.yarukotolist {
+  padding-top: 60px;
+  background-image: url("/nurse4.jpeg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 /* newページ */
 body.new {
-  background-image: url("/nurse3.jpeg");
+  padding-top: 60px;
+  background-image: url("/nurse8.jpeg");
   background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 /* indexページ */
-body.index {
-  background-image: url("/C.jpeg");
+html {
+  width: 100%;
+  height: 100%;
+  background-image: url("/nurse9.jpeg");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
+
+body.index {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0;
+}
+
+#table-tasks {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#table-tasks td {
+  vertical-align: middle;
+}
+
+
 
 /* その他のページ */
 body {
-  background-image: url("/D.jpeg");
+  padding-top: 60px;
+  background-image: url("nurse6.jpeg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 

@@ -5,12 +5,12 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "トップ", root_path, class: "header-list" %></li>
         <li><%= link_to "入院さんナースメイトとは", about_path, class: "header-list" %></li>
-        <li><%= link_to "やることリスト", about_path, class: "header-list" %></li>
+        <li><%= link_to "やることリスト", yarukotolist_path, class: "header-list" %></li>
         <% if logged_in? %>
           <% if current_user.admin? %>
           <li><%= link_to "医師、看護師さん一覧", users_path, class: "header-list" %></li>
           <% end %>
-          <li><%= link_to "投薬作成", new_user_ng_item_path(current_user), class: "header-list" %></li>
+          <li><%= link_to "食事の献立表", new_user_ng_item_path(current_user), class: "header-list" %></li>
           <li><%= link_to "電子カルテ作成", new_user_task_path(current_user), class: "header-list" %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle header-list" data-toggle="dropdown" id="dropdown-title">
@@ -21,7 +21,7 @@
               <li><%= link_to "プロフィール", current_user %></li>
               <li><%= link_to "設定", edit_user_path(current_user) %></li>
               <li class="dropdown-header">回復状況</li>
-              <li><%= link_to "投薬リスト一覧", user_ng_items_path(current_user) %></li>
+              <li><%= link_to "食事の献立表一覧", user_ng_items_path(current_user) %></li>
               <li><%= link_to "電子カルテ(自己申告)リスト一覧", user_tasks_path(current_user) %></li>
               <li class="divider"></li>
               <li><%= link_to "ログアウト", logout_path, method: :delete %></li>

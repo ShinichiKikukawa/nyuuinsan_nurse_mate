@@ -20,6 +20,7 @@ gem 'rails_autolink'
 gem 'activestorage', '~> 5.2'
 gem "image_processing", "~> 1.11"
 gem "mini_magick", "~> 4.11"
+gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'sqlite3'

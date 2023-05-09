@@ -34,13 +34,14 @@ ActiveRecord::Schema.define(version: 2023_04_28_155814) do
   end
 
   create_table "ng_items", force: :cascade do |t|
+    t.date "date"
     t.string "name"
-    t.string "company"
-    t.string "store"
     t.text "description"
+    t.text "company"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "store"
   end
 
   create_table "tasks", force: :cascade do |t|

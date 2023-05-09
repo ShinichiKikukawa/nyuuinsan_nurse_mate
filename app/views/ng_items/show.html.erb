@@ -11,18 +11,15 @@
           <td class="col-md-10"><%= @ng_item.id %></td>
         </tr>
         <tr>
-          <th class="active"><%= NgItem.human_attribute_name :name %></th>
-          <td><%= @ng_item.name %></td>
-        </tr>
-        <tr>
           <th class="active"><%= NgItem.human_attribute_name :company %></th>
-          <td><%= @ng_item.company %></td>
+          <td><% if @ng_item.description.present? %>
+                <%= auto_link(safe_join(@ng_item.company.split("\n"), tag(:br))) %>
+              <% else %>
+                備考は特段ありません。
+              <% end %>
+          </td>
         </tr>
         <tr>
-          <th class="active"><%= NgItem.human_attribute_name :description %></th>
-          <td>
-            <%= auto_link(safe_join(@ng_item.description.split("\n"), tag(:br))) %>
-          </td>
         </tr>
         <tr>
           <th class="active"><%= NgItem.human_attribute_name :created_at %></th>

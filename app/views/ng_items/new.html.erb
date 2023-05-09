@@ -1,23 +1,25 @@
-<% provide(:title, 'touyaku') %>
+<% provide(:title, 'meal') %>
 
-<h1>投薬　新規作成</h1>
+<body class="new">
+  <div class="form-wrapper" style="background-color: rgba(255, 255, 255, 0.5); opacity: 0.8;">
+    <h1>食事の献立表　新規作成</h1>
 
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <%= form_with(model: @ng_item, url: user_ng_items_path(@user), local: true) do |f| %>
-      <%= render partial: 'shared/error_messages', locals: { obj: @ng_item } %>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <%= form_with(model: @ng_item, url: user_ng_items_path(@user), local: true, html: { enctype: "multipart/form-data" }) do |f| %>
+          <%= render partial: 'shared/error_messages', locals: { obj: @ng_item } %>
 
-      <%= f.label :name, class: "label-form" %>
-      <%= f.text_field :name, class: "form-control" %>
-      
-      <%= f.label :company, class: "label-form" %>
-      <%= f.text_field :company, class: "form-control" %>
-      
-      <%= f.label :description, class: "label-form" %>
-      <%= f.text_area :description, rows: 12, class: "form-control", 
-      value: '飲む間隔：' %>
-      
-      <%= f.submit "新規登録", class: "btn btn-lg btn-primary btn-form" %>
-    <% end %>
+          <%= f.label :date %>
+          <%= f.date_field :date, class: "form-control", "data-provide": "datepicker" %>
+
+          <%= f.label :company, class: "label-form" %>
+          <%= f.text_area :company, rows: 2, class:"form-control" %><br>
+
+          <%= f.label :avatar, class: "label-form" %>
+          <%= f.file_field :avatar, class: "form-control" %>
+
+          <%= f.submit "新規登録", class: "btn btn-lg btn-primary btn-form" %>
+        <% end %>
+      </div>
   </div>
-</div>
+</body>

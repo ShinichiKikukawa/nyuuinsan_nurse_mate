@@ -5,6 +5,6 @@ class StaticPagesController < ApplicationController
   def about
   end
 
-  def yarukoto
+  def yarukotolist
   end
 end
