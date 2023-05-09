@@ -1,34 +1,70 @@
-<% provide(:title, "About") %>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+  <style>
+    body {
+        padding-top: 60px;
+        background-image: url("/nurse1.jpeg");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        margin: 0;
+    }
+
+    .about-main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 960px;
+        margin: 0 auto;
+        margin-left: -20px;
+        margin-right: -20px;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .text-content {
+        flex-basis: 66%;
+        margin-right: 40px;
+        background-color: rgba(255, 255, 255, 0);
+        padding: 20px;
+        padding-left: 20px;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+
+    .nurse-image {
+        flex-basis: 33%;
+    }
+
+    .nurse-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+</style>
+</head>
 <body class="about">
-  <div class="about-main">
-    <h2>お医者さん、看護師さんにさらなる安心・安全を！！患者に自由と退院を!</h2>
-    <h2>入院さんナースメイトとは?</h2>
-        <p>入院さんナースメイトとは、患者自己申告型電子カルテです。</p>
-        <p>入院した時に、医師、看護師、薬剤師、栄養士、ケアワーカー、患者のチームワークを最大限引き出すことを目的（ミッション）としたWEBアプリケーションです。</p>
-        <p>極軽度〜軽程度の患者さんとご家族がメインユーザーとして、既存の病院の電子カルテ、管理体制とシナジーを生み出すことを想定しています。</p>
-        <p>抜け漏れ忘れ引き継ぎミスがないようのダブルチェックの役割を果たします。</p>
-        <p>その中でも自己申告（報告、連絡、相談）と自覚症状（自己申告ベース）管理のみに特化して看護師さんの負担軽減に寄与するアプリです。</p>
-
-        <p>SOAPは、看護師や医療従事者が記録や評価を行う際に使用される枠組みの一つです。SOAPは、次の4つの項目から構成されています。</p>
-
-        <p>Subjective（主観的情報）：患者自身が感じている症状や主張を記録します。例えば、痛みや不安感などです。</p>
-
-        <p>Objective（客観的情報）：看護師が患者を観察した結果、測定値、評価結果など、客観的に得られた情報を記録します。例えば、血圧や体温、創傷の状態などです。</p>
-
-        <p>Assessment（評価）：看護師が患者の状態を評価し、問題点を洗い出します。この項目では、看護師が何を考えたか、どのような判断をしたかを記録します。</p>
-
-        <p>Plan（計画）：看護師が患者の問題点を解決するために、どのような介入を行うか、どのようなケアを提供するかを記録します。</p>
-
-        <p>これらの情報は、患者の状態を正確に評価し、適切な治療やケアを提供するために必要な情報を提供します。</p>
-
-
-
-        <p>1番のポイントは首尾一貫した自前のデータベースが持てることにあり、万が一病院側での引き継ぎに何らかの連絡ミスや障害があった時の、早期復旧、早期リカバリーに貢献します。</p>
-        <p>とはいえ病院側で、しっかり管理してくれていることですので、無理せず、趣味程度でお考えください。休みたいとき、やめたい時は、いつでもどうぞ。</p>
-        <p>またやりたくなった時は、今までのデータを見て、復活すれば良いと思います。</p>
-        <p>お世話になった医師さん、看護師さんに貢献できるよう"入院さんナースメイト"と名づけました。お医者さん、看護師さんにさらなる安心・安全を！！患者に自由と退院を！</p>
-        <p>このアプリを活用し、自分が主役の楽しい人生になるようお祈りしております。自由をあなたに！</p>
-
-    <%# <img class="about-img" src="/doraneko.jpg"> %>
-  </div>
+    <div class="about-main">
+      <div class="text-content">
+        <h1>入院さんナースメイトとは?</h1>
+        <h3>　　　　医療チームと患者の連携を強化！</h3>
+        <h3>　入院さんナースメイトで安心・安全な入院生活へ</h3><br>
+        <p></p>
+        <p>①入院さんナースメイトは、患者自己申告型電子カルテです。極軽度〜軽程度の患</p>
+        <p>　者さんとご家族がメインユーザーで、既存の病院の電子カルテ、看護師、医師と</p>
+        <p>　シナジーを生み出すWEBアプリケーションです。　　　　　　　　　　　　　　</p>
+        <p>②抜け漏れや引き継ぎミスがないよう、ダブルチェックの役割を果たし、看護師</p>
+        <p>　さんの負担軽減に寄与します。SOAP形式で患者の状態を正確に記録し、適切な</p>
+        <p>　治療やケアを受けるために適切な情報提供をすることができます。　　　　　　　　　　　　　　　　　　　</p>
+        <p>③入院さんナースメイトが持つ首尾一貫したデータベースは、病院側の引き継ぎに</p>
+        <p>　何らかの連絡ミスや障害があった場合の早期復旧・リカバリーに貢献します。</p>
+        <h3>　　　　　　　自由をあなたに！!</h3>
+        <p>このアプリを活用して、自分が主役の楽しい入院生活を送ってください。</p>
+      </div>
+    </div>
 </body>

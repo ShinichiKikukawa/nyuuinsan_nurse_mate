@@ -4,39 +4,56 @@
 
 /* 共通 */
 
-/* topページ */
-body{
+/* 共通スタイル */
+body {
   padding-top: 60px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* これを変更 */
+  height: 100%;
+  margin: 0;
 }
 
 body.top {
   padding-top: 60px;
-  background-image: url("/nurse17.jpeg");
+  background-image: url("/nurse8.jpeg");
   background-size: cover;
-  background-position: center center;
+  background-position: center top;
   background-repeat: no-repeat;
 }
 
 body.about {
   padding-top: 60px;
-  background-image: url("/nurse4.jpeg");
+  background-image: url("/nurse2.jpeg");
   background-size: cover;
-  background-position: center center;
+  background-position: center top;
   background-repeat: no-repeat;
 }
 
-body.yarukotolist {
+body.yarukotolost {
+    padding-top: 60px;
+    background-image: url('nurse4.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center top;
+  }
+
+/* newページ */
+body.Karte-new {
   padding-top: 60px;
-  background-image: url("/nurse4.jpeg");
+  background-image: url("/nurse8.jpeg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
 }
 
 /* newページ */
-body.new {
+body.Meal-new {
   padding-top: 60px;
-  background-image: url("/nurse8.jpeg");
+  background-image: url("/nurse21.jpeg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -52,15 +69,32 @@ html {
   background-repeat: no-repeat;
 }
 
-body.index {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  margin: 0;
+/* indexページ */
+body.Karte-index {
+  background-image: url("/nurse6.jpeg");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
+
+body.Meal-index {
+  background-image: url("/nurse5.jpeg");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Users-indexページ */
+body.Users-index {
+  background-image: url("/nurse11.jpeg"); /* ここに医療者一覧ページの画像のパスを指定してください */
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 
 #table-tasks {
   margin-top: 30px;
@@ -69,17 +103,6 @@ body.index {
 
 #table-tasks td {
   vertical-align: middle;
-}
-
-
-
-/* その他のページ */
-body {
-  padding-top: 60px;
-  background-image: url("nurse6.jpeg");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
 }
 
 
@@ -121,7 +144,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 1.5em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
